@@ -1,0 +1,51 @@
+---
+description: Git workflow and commit guidelines
+globs: 
+alwaysApply: true
+---
+# Never
+- use GitHub cli, it's not installed
+- commit to develop
+- use jq, it's not installed
+
+# Git Workflow Guidelines
+- Derive REPO from: `{ owner: 'FreeWillPBC', repository: 'freewill-api-v2' }`
+
+## Fetching issue context
+- Follow the [jira.mdc](mdc:.cursor/rules/jira.mdc) guidelines
+
+## Creating new issues
+- Follow the [jira.mdc](mdc:.cursor/rules/jira.mdc) guidelines
+
+## Starting New Work
+- Attempt to fetch issue context following [jira.mdc](mdc:.cursor/rules/jira.mdc)
+- If no issue for the work, create it following [jira.mdc](mdc:.cursor/rules/jira.mdc) guidelines
+- Make sure to fetch and pull latest from develop when creating new branches
+- Branch naming:
+  - Name the branch `<IDENTITY>/<ISSUE_ID>` ex. my_name/cfc-1432
+- Restate the problem statement
+- Provide an outline of how to fix the problem
+
+## Making Changes
+- Focus on one task at a time
+- Avoid mixing refactors and feature changes unless necessary
+- Avoid circular dependencies across modules
+
+## Committing Changes
+- Follow the [commit-changes.mdc](mdc:.cursor/rules/commit-changes.mdc) guidelines
+
+## Managing Branches and PRs
+- Keep feature branches short-lived
+- Requests to push changes generally means stage, commit, push
+- Following [pull-requests.mdc](mdc:.cursor/rules/pull-requests.mdc) guidlines when creating a PR
+
+# Making Database Changes
+- follow the guidelines for migrations found in [create-migration.mdc](mdc:.cursor/rules/create-migration.mdc)
+
+# Documentation Guidelines
+
+## Code Documentation
+- Include a README.md or docblock explaining the module's purpose
+- Describe assumptions, edge cases, and dependencies
+- Avoid describing why a change is made and prefer commenting on the impact of the change
+- Link to external documentation or decision records when relevant

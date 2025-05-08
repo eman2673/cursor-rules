@@ -1,0 +1,9 @@
+---
+description: generate database migration
+globs: 
+alwaysApply: false
+---
+- use `npm run db-generate schema` from [package.json](mdc:src/app/package.json)
+- browser [app](mdc:src/app)'s **(ORM|Model).ts to find sequelize models to understand the database tables
+- update the generated file name
+- update the content at the top of the generated file

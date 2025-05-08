@@ -1,0 +1,12 @@
+---
+description: committing changes
+globs: 
+alwaysApply: false
+---
+
+# When committing changes
+- Never commit to develop
+- Make sure branch and changes correlate
+- Review the actual diff 
+- Prefer small, single-purpose commits
+- Include the issue in commit messages, starting them with '#{issue ID}'

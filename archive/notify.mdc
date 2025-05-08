@@ -1,0 +1,10 @@
+---
+description: notify
+globs: 
+alwaysApply: false
+---
+# Notify with sound
+- Play a sound
+  ```bash
+  afplay [ding.wav](mdc:.cursor/ding.wav) > /dev/null 2>&1
+  ```

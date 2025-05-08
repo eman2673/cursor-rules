@@ -1,0 +1,11 @@
+---
+description: Creating a new branch given an issue ID
+globs: 
+alwaysApply: false
+---
+
+# Start working on new issue
+
+- Look up the issue on GH for context
+- Name the branch using '{IDENTITY}/{issue ID}' eg. 'my_name/TECH-1234'
+- Prefix commit messages with the branch name eg. 'my_name/TECH-1234: doing good stuff'

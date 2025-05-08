@@ -1,0 +1,17 @@
+---
+description: working with jira
+globs: 
+alwaysApply: false
+---
+- `JIRA_TOKEN` is an ENV Variable `-H "Authorization Basic $JIRA_TOKEN"`
+- `JIRA_USER` is my email address
+- use curl and Jira version 3 APIs
+
+# Creating Jira Issues
+- use Issue Template defind in [issue.tpl.md](mdc:.cursor/templates/issue.tpl.md)
+
+
+
+
+
+

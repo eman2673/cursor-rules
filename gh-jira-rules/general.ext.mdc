@@ -1,0 +1,83 @@
+---
+description: Git workflow and commit guidelines
+globs: 
+alwaysApply: true
+---
+# Never
+- use GitHub cli, it's not installed
+- commit to develop
+- use jq, it's not installed
+
+# Interfacing with project management solution for issues 
+- Jira is used to manage issues(tickets, tasks, stories, epics, bugs)
+- `JIRA_TOKEN` is an ENV Variable 
+- use curl and Jira version 3 APIs
+- apply header: `-H "Authorization Basic $JIRA_TOKEN"`
+
+## Creating Issues
+- use [Issue Template](mdc:.cursor/rules/templates/issue.md)
+
+# Interfacing with Version Contros System
+- GitHub is used to manage version control
+- `GITHUB_TOKEN` is an ENV Variable
+- When necessary curl github APIs with `GITHUB_TOKEN`
+
+# Workflow
+- Get some context
+- Create a new branch
+- Confirm understanding
+- Execute plan of attack
+- Test changes 
+
+## Starting New Work
+- Attempt to [fetch issue](mdc:.cursor/rules/general.ext.mdc#L11) context
+- If no issue for the work, [create it](mdc:.cursor/rules/general.ext.mdc#L11-L18)
+- Restate the problem statement
+- Provide an outline of how to fix the problem
+- Pause for feedback
+
+## Managing Branches
+- Create a new branch from develop
+- Name branch `<IDENTITY>/<ISSUE_ID>` ex. my_name/cfc-1432
+
+## Making Changes
+- Focus on one task at a time
+- Avoid mixing refactors and feature changes unless necessary
+- Avoid circular dependencies across modules
+
+## Committing Changes
+- Never commit without being prompted to
+- Make sure branch and changes correlate
+  - only commit to a branch named after the issue ID
+- Review the actual diff for context and commit messaging
+- Prefer small, single-purpose commits
+  - suggest committing 
+- Prefix the commit with the issue ID
+- Request to commit genrally means stage and commit
+  - Check all unstaged files for relevant changes potentially made manually
+  - Group changes by purpose and commit each group with meaningful messaging
+
+## Managing PRs
+- Requests to push changes generally means stage, commit, push
+- Base branch should be `develop` unless specified otherwise
+- Title should be clear and concise, describing the main change
+- Use [PR template](mdc:.cursor/rules/templates/pr.md)
+- Use curl and GitHub API to create the PR
+  ```bash
+  curl -X POST \
+    -H "Accept: application/vnd.github.v3+json" \
+    -H "Authorization: token <TOKEN>" \
+    <REPO>/pulls \
+    -d '{
+      "title": "<PR_TITLE>",
+      "body": "<PR_DESCRIPTION>",
+      "head": "<BRANCH_NAME>",
+      "base": "<BASE_BRANCH>"
+    }'
+  ```
+
+## Code Documentation
+- Include a README.md or docblock explaining the module's purpose
+- Describe assumptions, edge cases, and dependencies
+- Avoid describing why a change is made and prefer commenting on the impact of the change
+- Link to external documentation or decision records when relevant

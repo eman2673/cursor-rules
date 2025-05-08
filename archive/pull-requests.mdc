@@ -1,0 +1,24 @@
+---
+description: Creating pull requests
+globs: 
+alwaysApply: false
+---
+ # Pull Request Guidelines
+- Base branch should be `develop` unless specified otherwise
+- Title should be clear and concise, describing the main change
+- Lookup token following [lookup-pat.mdc](mdc:.cursor/rules/lookup-pat.mdc) guidelines
+- Use PR template defind in [pr.tpl.md](mdc:.cursor/templates/pr.tpl.md)
+- Use curl and GitHub API to create the PR
+  ```bash
+  curl -X POST \
+    -H "Accept: application/vnd.github.v3+json" \
+    -H "Authorization: token <TOKEN>" \
+    <REPO>/pulls \
+    -d '{
+      "title": "<PR_TITLE>",
+      "body": "<PR_DESCRIPTION>",
+      "head": "<BRANCH_NAME>",
+      "base": "<BASE_BRANCH>"
+    }'
+  ```
+  - notify on complete [notify.mdc](mdc:.cursor/rules/notify.mdc)

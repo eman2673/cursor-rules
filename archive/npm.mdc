@@ -1,0 +1,9 @@
+---
+description: execute npm commands
+globs: 
+alwaysApply: false
+---
+# On NPM Execution
+
+- Project is a monolith, execute from module directory
+

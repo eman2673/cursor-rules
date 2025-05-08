@@ -1,0 +1,15 @@
+---
+description: hitting github rest APIs
+globs: 
+alwaysApply: false
+---
+# PAT Lookup Guidelines
+
+- Never expose tokens in logs
+- Handle credentials securely
+  ```bash
+  # Ignore logs from this command
+  export GITHUB_TOKEN=$(security find-internet-password -s "github.com" -w)
+  export JIRA_TOKEN=$(security find-internet-password -s "jira.com" -w)
+  export JIRA_USER=$(security find-internet-password -s "jira.com" 2>/dev/null | awk -F'"' '/"acct"/ {print $4}')
+  ```
