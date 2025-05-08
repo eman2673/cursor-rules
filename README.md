@@ -9,6 +9,12 @@ This repository contains a collection of rules that enhance Cursor's capabilitie
 - `templates/`: Contains template files that should be copied to your workspace's `.cursor/rules/templates/` directory
 - `archive/`: Contains deprecated or archived rules
 
+## File Naming Convention
+Rules files use the `.ext.mdc` extension to indicate they are external rules. This naming convention is particularly useful for:
+- Storing rules in a central location and applying them to multiple workspaces
+- Using rules with devcontainers
+- Keeping rules out of your repository (you can add `*.ext.mdc` to your `.gitignore`)
+
 ## Templates
 The system includes two default templates that serve as integration points for the rules:
 1. `issue.md`: Template for issue creation
@@ -20,14 +26,20 @@ These templates are optional and can be replaced with custom templates to match 
 The rules system expects authentication tokens to be available in the environment. These tokens should be set up before using the rules. Each integration may require different authentication methods, which are documented in their respective rule directories.
 
 ## Applying Rules to a Workspace
-To apply these rules to your workspace:
+There are two main ways to apply these rules to your workspace:
 
+### Option 1: Clone and Copy 
 1. Clone this repository to your local machine
 2. Copy the desired rule directories to your workspace's `.cursor/rules/` directory
 3. Either:
    - Copy the default templates from the root `templates/` directory to your workspace's `.cursor/rules/templates/` directory, or
    - Place your custom templates in your workspace's `.cursor/rules/templates/` directory (ensuring they are named `issue.md` and `pr.md`)
 4. Ensure all required environment variables are set
+
+### Option 2: Direct Copy (Simpler Approach)
+1. Copy the desired rule files directly from this repository to your workspace's `.cursor/rules/` directory
+2. Copy the templates as needed
+3. Ensure all required environment variables are set
 
 ### Workspace Rule Guidelines
 When setting up rules in your workspace, please note these important considerations:
