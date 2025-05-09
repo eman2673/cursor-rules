@@ -1,5 +1,5 @@
 ---
-description: Git workflow and commit guidelines
+description: General guidelines to always consider (JIRA, Github, Workflow, Documentation)
 globs: 
 alwaysApply: true
 ---
@@ -11,7 +11,7 @@ alwaysApply: true
 # Interfacing with project management solution for issues 
 - Github is used to manage issues(tickets, tasks, stories, projects, bugs)
 - `GITH_TOKEN` is an ENV Variable
-- `REPO` should be derived as follows: `$(git config --get remote.origin.url | sed 's/\.git$//' | sed 's/git@github.com:/https:\/\/api.github.com\/repos\//')` 
+- `REPO` should be derived as follows: `$(git config --get remote.origin.url | sed 's/\.git$//' | sed 's/git@github.com:/https:\/\/api.github.com\/repos\//')`
 - use curl and Github APIs
 - apply headers: `-H "Accept: application/vnd.github.v3+json" -H "Authorization: token $GITH_TOKEN"`
 
@@ -21,7 +21,7 @@ alwaysApply: true
 # Interfacing with Version Contros System
 - GitHub is used to manage version control
 - `GITH_TOKEN` is an ENV Variable
-- `REPO` should be derived as follows: `$(git config --get remote.origin.url | sed 's/\.git$//' | sed 's/git@github.com:/https:\/\/api.github.com\/repos\//')
+- `REPO` should be derived as follows: `$(git config --get remote.origin.url | sed 's/\.git$//' | sed 's/git@github.com:/https:\/\/api.github.com\/repos\//')`
 - When necessary curl github APIs with `GITHUB_TOKEN`
 
 # Workflow

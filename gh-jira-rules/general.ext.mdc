@@ -1,5 +1,5 @@
 ---
-description: Git workflow and commit guidelines
+description: General guidelines to always consider (JIRA, Github, Workflow, Documentation)
 globs: 
 alwaysApply: true
 ---
@@ -20,7 +20,7 @@ alwaysApply: true
 # Interfacing with Version Contros System
 - GitHub is used to manage version control
 - `GITHUB_TOKEN` is an ENV Variable
-- `REPO` should be derived as follows: `$(git config --get remote.origin.url | sed 's/\.git$//' | sed 's/git@github.com:/https:\/\/api.github.com\/repos\//')
+- `REPO` should be derived as follows: `$(git config --get remote.origin.url | sed 's/\.git$//' | sed 's/git@github.com:/https:\/\/api.github.com\/repos\//')`
 - When necessary curl github APIs with `GITHUB_TOKEN`
 
 # Workflow
